@@ -13,6 +13,8 @@ function SigninScreen(props){
             password: password 
         }
    }
+   
+   //fetch getbyemail email and password
 
     return(
         <div className='form'>

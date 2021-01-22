@@ -1,22 +1,42 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
+import config from '../config'
 
 function RegisterScreen(prop){
 
-    const [input, setInput] = useState({
-        name: '',
-        email: '',
-        password: '',
-        rePassword: ''
-    })
+    const user = {}
+    // const [input, setInput] = useState({
+    //     name: '',
+    //     email: '',
+    //     password: '',
+    //     rePassword: ''
+    // })
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
-   const handleSubmit =(e)=>{
-       e.preventDefault();
-       let value = {}
+   const handleSubmit = (e) =>{
+        e.preventDefault();
+       user.name = name
+       user.email = email
+       user.password = password
+        fetch(`${config.API_ENDPOINT}/users`, {
+            method: 'POST',
+            headers: {
+            'content-type': 'application/json'
+            },
+            body: JSON.stringify(user),
+            })
+            .then(res => {
+                console.log("user adedd")
+            })
+            .catch(error => {
+            console.error({ error })
+        })
+}
 
-   }
 
-   const handleInputChange =(e)=>{
+   const handleInputChange =(e)=>{ 
     e.preventDefault();
     
 }
@@ -34,19 +54,19 @@ function RegisterScreen(prop){
                         <label htmlFor='name'>
                             Name
                         </label>
-                        <input type='name' id='name'  name='name' onChange={handleInputChange}  required></input>
+                        <input type='name' id='name'  name='name' onChange={e => setName(e.target.value)}  required></input>
                     </li>
                     <li>
                         <label htmlFor='email'>
                             Email
                         </label>
-                        <input type='email' id='email' name='email' onChange={handleInputChange} ></input>
+                        <input type='email' id='email' name='email' onChange={e => setEmail(e.target.value)}></input>
                     </li>
                     <li>
                         <label htmlFor='password'>
                             Password
                         </label>
-                        <input type='password' id='password' name='password' onChange={handleInputChange} ></input>
+                        <input type='password' id='password' name='password' onChange={e => setPassword(e.target.value)} ></input>
                     </li>
                     <li>
                         <label htmlFor='rePassword'>
@@ -55,7 +75,7 @@ function RegisterScreen(prop){
                         <input type='password' id='rePassword' name='rePassword' onChange={handleInputChange} ></input>
                     </li>
                     <li>
-                        <button type="submit" className="button primary">
+                        <button type="submit" className="button primary" onClick = {handleSubmit}>
                             Register
                         </button>
                     </li>

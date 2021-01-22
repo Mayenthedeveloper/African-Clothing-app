@@ -155,3 +155,25 @@ html{
     margin-bottom: 100px;
   }
   
+
+
+@media all and (max-width: 320px) {
+  
+  html{
+    font-size: 100%;
+    
+  }
+  img, .grid-container{
+    width: auto ;
+    max-width: 100% ;
+    height: auto ;
+  }
+  
+  .grid-container {
+    max-width: 538px;
+  }
+  aside {
+    float: right;
+    width: 29.3680297%;
+  }
+}
