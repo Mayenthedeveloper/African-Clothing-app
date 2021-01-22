@@ -1,21 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 
 function RegisterScreen(prop){
 
-    const handleSubmit = (e)=> {
-        e.preventDefault()
-       const user = { 
-            name: this.name,
-            email: this.email,
-            //pass
-        }
-       console.log(user.name)
-       //create user object and send this to write in the table in backend.
-    }
+    const [input, setInput] = useState({
+        name: '',
+        email: '',
+        password: '',
+        rePassword: ''
+    })
+
+   const handleSubmit =(e)=>{
+       e.preventDefault();
+       let value = {}
+
+   }
+
+   const handleInputChange =(e)=>{
+    e.preventDefault();
+    
+}
+
+   
 
     return(
-        <div className='form'>
+        <div className='form' onSubmit={handleSubmit}>
             <form>
                 <ul>
                     <li>
@@ -25,25 +34,25 @@ function RegisterScreen(prop){
                         <label htmlFor='name'>
                             Name
                         </label>
-                        <input type='name' id='name'  name='name'></input>
+                        <input type='name' id='name'  name='name' onChange={handleInputChange}  required></input>
                     </li>
                     <li>
                         <label htmlFor='email'>
                             Email
                         </label>
-                        <input type='email' id='email' name='email'></input>
+                        <input type='email' id='email' name='email' onChange={handleInputChange} ></input>
                     </li>
                     <li>
                         <label htmlFor='password'>
                             Password
                         </label>
-                        <input type='password' id='password' name='password'></input>
+                        <input type='password' id='password' name='password' onChange={handleInputChange} ></input>
                     </li>
                     <li>
                         <label htmlFor='rePassword'>
                             Re-Enter-Password
                         </label>
-                        <input type='password' id='rePassword' name='rePassword'></input>
+                        <input type='password' id='rePassword' name='rePassword' onChange={handleInputChange} ></input>
                     </li>
                     <li>
                         <button type="submit" className="button primary">

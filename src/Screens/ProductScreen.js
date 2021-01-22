@@ -7,17 +7,10 @@ import AppContext from '../AppContext'
 function ProductScreen(props){
     const context = useContext(AppContext)
     const [quantity, setQuantity] = useState(1)
-    var product 
-    const idToMatch =  props.match.params.id
-    //const product = context.products.find(x=> x.id === props.match.params.id );
-    context.products.forEach(element => {
-        var curr = element.id
-        if( curr == idToMatch)
-        {   
-            
-                product = element
-        }
-    });
+   
+    const {id} =  props.match.params
+    const product = context.products.length ? context.products.find(product=> product.id === parseInt(id)) : {}
+  
 
     const handleSubmit = (e)=> {
         e.preventDefault()
@@ -42,6 +35,7 @@ function ProductScreen(props){
             <div className='back-to-result'>
                 <Link to='/'>Back to result</Link>
             </div>
+            {!!Object.keys(product).length && 
             <div className='details'>
                 <div className='detail-image'>
                     <img src={product.image} alt='product'></img>
@@ -96,7 +90,7 @@ function ProductScreen(props){
                     </form>
                 </div>
             </div>
-            
+            }
         </div>
     )
 }
