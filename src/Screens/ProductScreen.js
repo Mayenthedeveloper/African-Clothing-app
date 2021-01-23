@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import { Link } from 'react-router-dom';
-//import data from '../data';
+import data from '../data';
 import AppContext from '../AppContext'
 
 
@@ -9,8 +9,9 @@ function ProductScreen(props){
     const [quantity, setQuantity] = useState(1)
    
     const {id} =  props.match.params
-    const product = context.products.length ? context.products.find(product=> product.id === parseInt(id)) : {}
-  
+    // const product = data.products.length ? data.products.find(product=> product.id === parseInt(id)) : {}
+    const product = data.products.length ? data.products.find(product=> product.id === id) : {}
+  console.log(data.products)
 
     const handleSubmit = (e)=> {
         e.preventDefault()

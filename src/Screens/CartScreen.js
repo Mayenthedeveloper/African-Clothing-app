@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import { Link } from 'react-router-dom';
-// import data from '../data'
+import data from '../data'
 
 import AppContext from '../AppContext'
 
@@ -21,6 +21,8 @@ function CartScreen (props){
             itemList[item.id] = tempItem
         }
     })
+
+    console.log(itemList)
     
     // const productId = props.match.params.id;
     var finalAmount = 0

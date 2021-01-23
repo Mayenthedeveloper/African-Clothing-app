@@ -1,7 +1,7 @@
 
   const  products = [
         {
-        id:'1,',
+        id:'1',
         name: 'Skirt and Blouse',
         category:  'Skirt and Blouse',
         image: '/images/snb1.png',

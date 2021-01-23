@@ -11,6 +11,12 @@ html{
   
   #root{
       height: 100%;
+      width: 100%;
+      
+  }
+
+  img{
+    width: 100%;
   }
 
   .grid-container{
@@ -172,8 +178,5 @@ html{
   .grid-container {
     max-width: 538px;
   }
-  aside {
-    float: right;
-    width: 29.3680297%;
-  }
+  
 }

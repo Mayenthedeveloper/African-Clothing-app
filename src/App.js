@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import  {  Route, Link } from 'react-router-dom';
-// import data from './data';
+import data from './data';
 import HomeScreen from './Screens/HomeScreen';
 import ProductScreen from './Screens/ProductScreen';
 import CartScreen from './Screens/CartScreen';
@@ -18,9 +18,10 @@ function App() {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-    fetch(`${config.API_ENDPOINT}/products`)
-    .then(res => res.json())
-    .then(products => setProducts(products))
+    // fetch(`${config.API_ENDPOINT}/products`)
+    // .then(res => res.json())
+    // .then(products => setProducts(products))
+    setProducts(data)
   }, [])
 
   const openMenu = ()=> {

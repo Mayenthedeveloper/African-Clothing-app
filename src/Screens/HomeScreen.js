@@ -1,18 +1,19 @@
 import React,{useContext} from 'react';
 import { Link } from 'react-router-dom';
-// import data from '../data';
+import data from '../data';
 import AppContext from '../AppContext'
 
 function HomeScreen(props){
   const context = useContext(AppContext)
 
   const {id} = props.match.params
-  let products = context.products
+  // let products = context.products
+  let products = data.products
   if(id){
-     products = context.products.filter(product=> product.category === id)
+    //  products = context.products.filter(product=> product.category === id)
+    products = data.products.filter(product=> product.category === id)
   }
    
-  
     return(
         <ul className='products'>
         {
