@@ -4,7 +4,7 @@ import data from '../data';
 import AppContext from '../AppContext'
 
 function HomeScreen(props){
-  const context = useContext(AppContext)
+  // const context = useContext(AppContext)
 
   const {id} = props.match.params
   // let products = context.products

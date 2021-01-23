@@ -8,10 +8,10 @@ function SigninScreen(props){
 
    const submitHandler = (e)=>{
         e.preventDefault();
-        const sign = {
-            email: email,
-            password: password 
-        }
+        // const sign = {
+        //     email: email,
+        //     password: password 
+        // }
    }
    
    //fetch getbyemail email and password

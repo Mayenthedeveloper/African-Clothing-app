@@ -8,7 +8,7 @@ import './App.css';
 import SigninScreen from './Screens/SigninScreen';
 import RegisterScreen from './Screens/RegisterScreen';
 import AppContext from './AppContext';
-import config from './config'
+// import config from './config'
 
 
 
