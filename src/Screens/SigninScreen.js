@@ -1,20 +1,36 @@
 import React, { useState} from 'react';
 import { Link } from 'react-router-dom';
+import AuthApiService from '../services/auth-api-service'
 
 
 function SigninScreen(props){
     const [email, setEmail] = useState('')
     const [password, setPassword] =useState('')
+    const [error, setError] = useState('')
 
+    
    const submitHandler = (e)=>{
         e.preventDefault();
-        // const sign = {
-        //     email: email,
-        //     password: password 
-        // }
+        setError(null) 
+
+
+        AuthApiService.postLogin({
+            email,
+            password
+          })
+            .then(() => {
+              setEmail('')
+              setPassword('')
+              props.history.push('/')
+            //   this.props.onLoginSuccess()
+            })
+            .catch(res => {
+              setError(res.error)
+            })
+        
    }
    
-   //fetch getbyemail email and password
+
 
     return(
         <div className='form'>
@@ -28,13 +44,13 @@ function SigninScreen(props){
                         <label>
                             Email
                         </label>
-                        <input type='email' name='email' id='email' onChange={(e) => setEmail(e.target.value)}></input>
+                        <input type='email' value={email} name='email' id='email' placeholder="Enter email" onChange={(e) => setEmail(e.target.value)}></input>
                     </li>
                     <li>
                         <label>
                             Password
                         </label>
-                        <input typ='password' id='password' name='password' onChange={(e) => setPassword(e.target.value)}></input>
+                        <input type='password' value={password} id='password' name='password' placeholder="Password" onChange={(e) => setPassword(e.target.value)}></input>
                     </li>
                     <li>
                         <button type='submit' className='button primary'>SignIn</button>

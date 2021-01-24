@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import config from '../config'
+import AuthApiService from '../services/auth-api-service'
 
-function RegisterScreen(prop){
+function RegisterScreen(props){
 
     const user = {}
     // const [input, setInput] = useState({
@@ -14,25 +15,41 @@ function RegisterScreen(prop){
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [error, setError] = useState('')
 
    const handleSubmit = (e) =>{
         e.preventDefault();
        user.name = name
        user.email = email
        user.password = password
-        fetch(`${config.API_ENDPOINT}/users`, {
-            method: 'POST',
-            headers: {
-            'content-type': 'application/json'
-            },
-            body: JSON.stringify(user),
-            })
-            .then(res => {
-                console.log("user adedd")
-            })
-            .catch(error => {
-            console.error({ error })
-        })
+       AuthApiService.postUser({
+           name,
+           email,
+           password
+       })
+       .then(()=>{
+           setName('')
+           setEmail('')
+           setPassword('')
+           props.history.push('/signin')
+       })
+
+       .catch(res => {
+        setError(res.error)
+      })
+        // fetch(`${config.API_ENDPOINT}/users`, {
+        //     method: 'POST',
+        //     headers: {
+        //     'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(user),
+        //     })
+        //     .then(res => {
+        //         console.log("user adedd")
+        //     })
+        //     .catch(error => {
+        //     console.error({ error })
+        // })
 }
 
 
