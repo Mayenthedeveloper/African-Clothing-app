@@ -1,6 +1,8 @@
 import React, { useState} from 'react';
 import { Link } from 'react-router-dom';
 import AuthApiService from '../services/auth-api-service'
+import TokenService from '../services/token-service'
+import IdleService from '../services/idle-service'
 
 
 function SigninScreen(props){
@@ -13,6 +15,12 @@ function SigninScreen(props){
         e.preventDefault();
         setError(null) 
 
+    const products = props.product
+    // console.log("Before: " + TokenService.readJwtToken())
+    // TokenService.clearAuthToken()
+    // TokenService.clearCallbackBeforeExpiry()
+    // IdleService.unRegisterIdleResets()
+    // console.log("After: " + TokenService.readJwtToken())
 
         AuthApiService.postLogin({
             email,
@@ -21,7 +29,10 @@ function SigninScreen(props){
             .then(() => {
               setEmail('')
               setPassword('')
-              props.history.push('/')
+              props.history.push({
+                    pathname: '/cart',
+                    state: "loggedin"
+              })
             //   this.props.onLoginSuccess()
             })
             .catch(res => {

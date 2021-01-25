@@ -40,7 +40,7 @@ const AuthApiService = {
         TokenService.saveAuthToken(res.authToken)
         IdleService.regiserIdleTimerResets()
         TokenService.queueCallbackBeforeExpiry(() => {
-          AuthApiService.postRefreshToken()
+        AuthApiService.postRefreshToken()
         })
         return res
       })

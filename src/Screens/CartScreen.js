@@ -1,12 +1,15 @@
 import React, {useContext, useState} from 'react';
 import { Link } from 'react-router-dom';
-// import data from '../data'
-
 import AppContext from '../AppContext'
+import TokenService from '../services/token-service'
+import OrderConfirmation from './OrderConfirmation'
 
 function CartScreen (props){
 
-    // const { cartItems } = cart;
+    const [userLoginStatus, setStatus] = useState("Place Order")
+    const userLoggedin = props.location.state
+    var userHasLoggedIn = ""
+
     const context = useContext(AppContext)
     var itemList = []
     context.cart.forEach(item=> {
@@ -21,8 +24,17 @@ function CartScreen (props){
             itemList[item.id] = tempItem
         }
     })
+    
+    if(userLoggedin != "loggedin")
+    {
+        userHasLoggedIn = false
+    }
+    else
+    {
+        userHasLoggedIn = true
+    }
 
-    console.log(itemList)
+
     
     // const productId = props.match.params.id;
     var finalAmount = 0
@@ -90,9 +102,16 @@ function CartScreen (props){
                     <h3>
                         Subtotal : $ {total}
                     </h3>
-                    <Link to='/signin'>
-                        <button>Place Order</button>
-                    </Link>
+                    {
+                        userHasLoggedIn ? 
+                        <Link to='/orderConfirmation' product = {context.cart}>
+                            <button> Finish Placing Order </button>
+                        </Link>
+                        :
+                        <Link to='/signin' product = {context.cart}>
+                            <button> Place Order </button>
+                      </Link>
+                    }
                 </div>
 
             </div>

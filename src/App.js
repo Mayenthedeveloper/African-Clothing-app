@@ -8,19 +8,15 @@ import './App.css';
 import SigninScreen from './Screens/SigninScreen';
 import RegisterScreen from './Screens/RegisterScreen';
 import AppContext from './AppContext';
+import OrderConfirmation from './Screens/OrderConfirmation'
 import config from './config'
-import TokenService from './services/token-service'
 
 
 
 
 function App() {
   const [cart, setCart] = useState([])
-
   const [products, setProducts] = useState([])
-
-  console.log(TokenService.readJwtToken())
-
   useEffect(() => {
     // fetch(`${config.API_ENDPOINT}/products`)
     // .then(res => res.json())
@@ -62,6 +58,7 @@ function App() {
         <div className='header-links'>
            <Link to='/cart'> Cart-{cart.length}</Link>
           <Link to='/signin'> Sign In </Link>
+          <Link/>
         </div>
       </header>
       <aside className='sidebar'>
@@ -83,6 +80,7 @@ function App() {
           <Route path='/cart/:id?' component={CartScreen}/>
           <Route path="/category/:id" component={HomeScreen} />
           <Route path='/' exact component={HomeScreen}/>
+          <Route path = "/orderConfirmation" component = {OrderConfirmation}/>
           
         </div>
         

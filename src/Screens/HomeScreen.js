@@ -2,9 +2,10 @@ import React,{useContext} from 'react';
 import { Link } from 'react-router-dom';
 import data from '../data';
 import AppContext from '../AppContext'
+import TokenService from '../services/token-service'
 
 function HomeScreen(props){
-  // const context = useContext(AppContext)
+  const context = useContext(AppContext)
 
   const {id} = props.match.params
   // let products = context.products
@@ -14,6 +15,17 @@ function HomeScreen(props){
     products = data.products.filter(product=> product.category === id)
   }
    
+  try {
+      //console.log("Auth token " + TokenService.getAuthToken())
+      console.log("JWT token ")
+      console.log(TokenService.readJwtToken())
+  }
+  catch(error)
+  {
+    console.log("No valid token yet")
+  }
+
+
     return(
         <ul className='products'>
         {
