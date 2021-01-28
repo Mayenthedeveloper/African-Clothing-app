@@ -10,6 +10,8 @@ import RegisterScreen from './Screens/RegisterScreen';
 import AppContext from './AppContext';
 import OrderConfirmation from './Screens/OrderConfirmation'
 import config from './config'
+import Header from './Header/Header'
+import TokenService from './services/token-service';
 
 
 
@@ -17,6 +19,10 @@ import config from './config'
 function App() {
   const [cart, setCart] = useState([])
   const [products, setProducts] = useState([])
+  const [loggedStatus, setLoggedStatus] = useState(TokenService.hasAuthToken())
+
+  
+
   useEffect(() => {
     // fetch(`${config.API_ENDPOINT}/products`)
     // .then(res => res.json())
@@ -36,17 +42,25 @@ function App() {
   const addToCart = (item)=>{
     setCart([...cart, item])
   }
+  
 
   const value = {
     cart,
     addToCart,
-    products
+    products,
+    loggedStatus,
+    setLoggedStatus,
   }
 
   return (
     <AppContext.Provider value ={value}>
     <div className='grid-container'>
-      <header className='header'>
+      <Header
+        openMenu = {openMenu}
+        cart = {cart}
+        
+        />
+      {/* <header className='header'>
         <div className='brand'>
           <button onClick={openMenu}>
             &#9776;
@@ -58,9 +72,9 @@ function App() {
         <div className='header-links'>
            <Link to='/cart'> Cart-{cart.length}</Link>
           <Link to='/signin'> Sign In </Link>
-          <Link/>
+          
         </div>
-      </header>
+      </header> */}
       <aside className='sidebar'>
         <h3>Shopping Categories</h3>
         <button className='sidebar-close-button' onClick={closeMenu}>X</button>
