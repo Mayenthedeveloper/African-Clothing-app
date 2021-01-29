@@ -15,15 +15,7 @@ function HomeScreen(props){
     products = data.products.filter(product=> product.category === id)
   }
    
-  try {
-      //console.log("Auth token " + TokenService.getAuthToken())
-      console.log("JWT token ")
-      console.log(TokenService.readJwtToken())
-  }
-  catch(error)
-  {
-    console.log("No valid token yet")
-  }
+  
 
 
     return(

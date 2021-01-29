@@ -24,6 +24,13 @@ function SigninScreen(props){
     // IdleService.unRegisterIdleResets()
     // console.log("After: " + TokenService.readJwtToken())
 
+    const insertOrder = (e) => {
+        e.preventDefault();
+        //1. call backend service to insert user_id, timestamp in OrderTable
+        //2. get the orderId from the table
+        //3. call backend service to insert orderItems in orderItem table
+    }
+
         AuthApiService.postLogin({
             email,
             password
@@ -32,6 +39,7 @@ function SigninScreen(props){
               setEmail('')
               setPassword('')
               context.setLoggedStatus(TokenService.hasAuthToken)
+            //   inserOrder()
               props.history.push({
                     pathname: '/cart',
                     state: "loggedin"

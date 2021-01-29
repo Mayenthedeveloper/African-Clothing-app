@@ -15,21 +15,24 @@ function ProductScreen(props){
 
     const handleSubmit = (e)=> {
         e.preventDefault()
-       const item = { 
-            name: product.name,
-            size: product.size,
-            image: product.image,
-            quantity: quantity,
-            id: product.id,
-            price: product.price * quantity,
+    //    const item = { 
+    //         name: product.name,
+    //         size: product.size,
+    //         image: product.image,
+    //         quantity: quantity,
+    //         id: product.id,
+    //         price: product.price * quantity,
             
-        }
-        context.addToCart(item)
+            
+    //     }
+    //     context.addToCart(item)
     }
 
-    const setQty = (quantity) => {
-        setQuantity(quantity);
-    }
+
+
+    // const setQty = (quantity) => {
+    //     setQuantity(quantity);
+    // }
     
     return(
         <div>
@@ -74,13 +77,13 @@ function ProductScreen(props){
                             Status:{product.status}
                         </li>
                         <li>
-                            Qty: <select onChange={(e)=> setQty(e.target.value)}>
+                            {/* Qty: <select>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
-                            </select>
+                            </select> */}
                         </li>
                         <li>
                             <button className="button" type="submit">

@@ -30,6 +30,8 @@ function App() {
     // setProducts(data)
   }, [])
 
+
+
   const openMenu = ()=> {
     document.querySelector('.sidebar').classList.add('open');
 

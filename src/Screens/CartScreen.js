@@ -35,6 +35,10 @@ function CartScreen (props){
     }
 
 
+    const handleOrder = () => {
+        //call backend servie to 1. insert in ORder table
+    }
+
     
     // const productId = props.match.params.id;
     var finalAmount = 0
@@ -52,6 +56,13 @@ function CartScreen (props){
             document.getElementById(elementName).style.display = "none"
             finalAmount = finalAmount - itemList[itemId].price
             setTot()
+
+
+            //backend to run the delte query with productID = itemId
+    }
+
+    const updateOrderQty = () => {
+        //call to backend to run update quert with new quantity
     }
   
 
@@ -77,7 +88,7 @@ function CartScreen (props){
                                 </td>
                                 <td>
                                     Quantity:
-                                <select value = {item.quantity}>
+                                <select value = {item.quantity} onChange = {updateOrderQty}>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
