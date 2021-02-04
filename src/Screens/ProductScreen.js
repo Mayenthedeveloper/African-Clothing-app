@@ -1,7 +1,9 @@
 import React, {useContext, useState} from 'react';
 import { Link } from 'react-router-dom';
-import data from '../data';
-import AppContext from '../AppContext'
+// import data from '../data';
+import AppContext from '../AppContext';
+import config from '../config'
+import TokenService from '../services/token-service'
 
 
 function ProductScreen(props){
@@ -10,11 +12,29 @@ function ProductScreen(props){
    
     const {id} =  props.match.params
     // const product = data.products.length ? data.products.find(product=> product.id === parseInt(id)) : {}
-    const product = data.products.length ? data.products.find(product=> product.id === id) : {}
-  console.log(data.products)
+    const product = context.products.length ? context.products.find(product=> product.id === parseInt(id)) : {}
+
 
     const handleSubmit = (e)=> {
         e.preventDefault()
+        if(TokenService.hasAuthToken()){
+            const {user_id} = TokenService.readJwtToken()
+
+            fetch(`${config.API_ENDPOINT}/cart` ,{
+                method: 'POST',
+                headers:{
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({user_id, product_id : parseInt(id)})
+            })
+            .then(() => {
+                fetch(`${config.API_ENDPOINT}/cart/${user_id}`)
+                .then(res =>res.json())
+                .then(cart => context.setCart(cart))
+            })
+            
+
+        }
     //    const item = { 
     //         name: product.name,
     //         size: product.size,
@@ -22,11 +42,75 @@ function ProductScreen(props){
     //         quantity: quantity,
     //         id: product.id,
     //         price: product.price * quantity,
-            
-            
     //     }
-    //     context.addToCart(item)
+
+            
+        // const removeItem = (product_id) =>{
+        //     if(TokenService.hasAuthToken()){
+        //         const {user_id} = TokenService.readJwtToken()
+    
+        //         fetch(`${config.API_ENDPOINT}/cart/${user_id}`,{
+        //             method: 'DELETE',
+        //             headers: {
+        //                 "content-type": "application/json",
+        //               },
+        //             body: JSON.stringify({product_id})
+        //         })
+        //         .then(() => {
+        //             console.log('Deleted...')
+        //             context.removeFromCart(product_id)
+        //         })
+        //     }
+            
+        // }   
+            
+
+        // const addItemsToCart = () =>{
+        //     fetch(`${config.API_ENDPOINT}/cart` ,{
+        //         method: 'POST',
+        //         heades:{
+        //             'content-type': 'application/json'
+        //         },
+        
+        //     })
+        //     .then(res =>{
+        //         if(!res.ok){
+        //             return res.json().then(e => Promise.reject(e))
+        //             return res.json()
+        //         }
+        //     })
+    
+        //     .catch(error =>{
+        //         console.error({error})
+        //     })
+        // }
+
+
+
+        // context.addToCart(item)
+        
+        // fetch(`${config.API_ENDPOINT}/cart` ,{
+        //     method: 'POST',
+        //     heades:{
+        //         'content-type': 'application/json'
+        //     },
+    
+        // })
+        // .then(res =>{
+        //     if(!res.ok){
+        //         return res.json().then(e => Promise.reject(e))
+        //         return res.json()
+        //     }
+        // })
+
+        // .catch(error =>{
+        //     console.error({error})
+        // })
+
+        
     }
+
+
 
 
 
@@ -86,7 +170,7 @@ function ProductScreen(props){
                             </select> */}
                         </li>
                         <li>
-                            <button className="button" type="submit">
+                            <button className="button" type="submit" >
                                 Add to cart
                             </button>
                         </li>

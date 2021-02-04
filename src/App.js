@@ -24,14 +24,22 @@ function App() {
   
 
   useEffect(() => {
-    // fetch(`${config.API_ENDPOINT}/products`)
-    // .then(res => res.json())
-    // .then(products => setProducts(products))
+    fetch(`${config.API_ENDPOINT}/products`)
+    .then(res => res.json())
+    .then(products => setProducts(products))
     // setProducts(data)
+
+    if(TokenService.hasAuthToken()){
+      const {user_id} = TokenService.readJwtToken()
+
+      fetch(`${config.API_ENDPOINT}/cart/${user_id}`)
+    .then(res => res.json())
+    .then(products => setCart(products))
+    }
+    
   }, [])
 
-
-
+  
   const openMenu = ()=> {
     document.querySelector('.sidebar').classList.add('open');
 
@@ -44,6 +52,14 @@ function App() {
   const addToCart = (item)=>{
     setCart([...cart, item])
   }
+
+  const removeFromCart = (id) =>{
+    setCart(cart.filter(item => item.id !== id))
+  }
+
+  const addItemsToCart = (id) =>{
+    setCart(cart.filter(item => item.id !== id))
+  }
   
 
   const value = {
@@ -52,6 +68,9 @@ function App() {
     products,
     loggedStatus,
     setLoggedStatus,
+    setCart,
+    removeFromCart,
+    addItemsToCart
   }
 
   return (
