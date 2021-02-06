@@ -12,6 +12,7 @@ function CartScreen (props){
     var userHasLoggedIn = ""
 
     const context = useContext(AppContext)
+    console.log("Context:")
     console.log(context)
     // var itemList = []
     // context.cart.forEach(item=> {
@@ -27,46 +28,53 @@ function CartScreen (props){
     //     }
     // })
     
-    // if(userLoggedin != "loggedin")
-    // {
-    //     userHasLoggedIn = false
-    // }
-    // else
-    // {
-    //     userHasLoggedIn = true
-    // }
-
+    if(userLoggedin != "loggedin")
+    {
+        userHasLoggedIn = false
+       /// alert("User Out")
+    }
+    else
+    {
+        //alert("User In")
+        userHasLoggedIn = true
+    }
 
     const handleOrder = () => {
         //call backend servie to 1. insert in ORder table
     }
 
     
-    const productId = props.match.params.id;
+    //const productId = props.match.params.id;
     
     const [total, setTotal] = useState(0)
 
-    var finalAmount = 0
-    // context.cart.forEach(item=> {
-    //     finalAmount += item.price
-    // })
 
-    // setTotal(finalAmount)
+    var tot = 0
+    context.cart.map(item=> {
+       tot += parseFloat(item.price)
+    })
+
+   // setTotal(tot)
     
-    // const setTot = () => {
-    //     setTotal(finalAmount)
-    // }
-
-    const removeItem = (product_id) =>{
+    const removeItem = (product_id, product_price, id) =>{
+        tot = tot - parseFloat(product_price)
+        console.log("Total:" + tot)
+        console.log("Fetch call to clear one product")
+        var tr = document.getElementById("pro"+id);
+        tr.style.display = "none"
         if(TokenService.hasAuthToken()){
             const {user_id} = TokenService.readJwtToken()
-
+            var reqBody = {
+                user_id : user_id,
+                product_id : product_id
+            }
+            console.log(reqBody.product_id)
             fetch(`${config.API_ENDPOINT}/cart/${user_id}`,{
                 method: 'DELETE',
                 headers: {
                     "content-type": "application/json",
                   },
-                body: JSON.stringify({product_id})
+                body: JSON.stringify(reqBody)
             })
             .then(() => {
                 console.log('Deleted...')
@@ -122,7 +130,7 @@ function CartScreen (props){
                                 </select> */}
                                 </td>
                                 <td>
-                                <button type="button" className="button" onClick={(e)=> removeItem(item.id)} >
+                                <button type="button" className="button" onClick={(e)=> removeItem(item.product_id, item.price, item.id)} >
                                     Delete
                                 </button>
                             </td>
@@ -136,7 +144,7 @@ function CartScreen (props){
 
                 <div>
                     <h3>
-                        Subtotal : $ 0
+                        Total : ${tot}
                     </h3>
                     {
                         userHasLoggedIn ? 

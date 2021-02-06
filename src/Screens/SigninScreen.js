@@ -4,6 +4,7 @@ import AuthApiService from '../services/auth-api-service'
 import TokenService from '../services/token-service'
 import IdleService from '../services/idle-service'
 import AppContext from '../AppContext'
+import config from '../config'
 
 
 function SigninScreen(props){
@@ -31,6 +32,7 @@ function SigninScreen(props){
         //3. call backend service to insert orderItems in orderItem table
     }
 
+
         AuthApiService.postLogin({
             email,
             password
@@ -39,7 +41,24 @@ function SigninScreen(props){
               setEmail('')
               setPassword('')
               context.setLoggedStatus(TokenService.hasAuthToken)
-            //   inserOrder()
+            
+              if(TokenService.hasAuthToken()){
+                    console.log("Fetch call to clear table")
+                    const {user_id} = TokenService.readJwtToken()
+                    console.log("USER ID " + user_id)
+                    var url = `${config.API_ENDPOINT}/cart/`+user_id
+                    fetch(  url,{
+                        method: 'DELETE',
+                        headers:{
+                            'content-type': 'application/json'
+                        },
+                        body:  JSON.stringify({user_id})
+                    })
+                    .then((res) => {
+                        console.log(res)
+                    })
+             }
+
               props.history.push({
                     pathname: '/cart',
                     state: "loggedin"

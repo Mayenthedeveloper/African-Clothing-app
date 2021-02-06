@@ -57,9 +57,6 @@ function App() {
     setCart(cart.filter(item => item.id !== id))
   }
 
-  const addItemsToCart = (id) =>{
-    setCart(cart.filter(item => item.id !== id))
-  }
   
 
   const value = {
@@ -70,7 +67,6 @@ function App() {
     setLoggedStatus,
     setCart,
     removeFromCart,
-    addItemsToCart
   }
 
   return (

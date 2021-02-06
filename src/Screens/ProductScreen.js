@@ -17,9 +17,20 @@ function ProductScreen(props){
 
     const handleSubmit = (e)=> {
         e.preventDefault()
-        if(TokenService.hasAuthToken()){
-            const {user_id} = TokenService.readJwtToken()
 
+        if(TokenService.hasAuthToken()){
+            const item = { 
+                name: product.name,
+                size: product.size,
+                image: product.image,
+                quantity: quantity,
+                id: product.id,
+                price: product.price * quantity,
+            }
+    
+            context.addToCart(item)
+
+            const {user_id} = TokenService.readJwtToken()
             fetch(`${config.API_ENDPOINT}/cart` ,{
                 method: 'POST',
                 headers:{
@@ -34,6 +45,11 @@ function ProductScreen(props){
             })
             
 
+        }
+        else{
+            props.history.push({
+                pathname: '/signin'
+          })
         }
     //    const item = { 
     //         name: product.name,
