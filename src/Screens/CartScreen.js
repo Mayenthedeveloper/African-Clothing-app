@@ -13,7 +13,7 @@ function CartScreen (props){
 
     const context = useContext(AppContext)
     console.log("Context:")
-    console.log(context)
+    console.log(context.cart)
     // var itemList = []
     // context.cart.forEach(item=> {
     //     if(!(item.id in itemList))
@@ -49,16 +49,28 @@ function CartScreen (props){
     const [total, setTotal] = useState(0)
 
 
-    var tot = 0
-    context.cart.map(item=> {
-       tot += parseFloat(item.price)
-    })
+    // var tot = 0
+    // context.cart.map(item=> {
+    //    tot += parseFloat(item.price)
+    // })
 
-   // setTotal(tot)
+//    setTotal(tot)
+
+const cartTotal = ()=>{
+    
+    let tot = 0;
+    
+    context.cart.map(item=> {
+        tot += parseFloat(item.price)
+     })
+     return tot
+    
+}
+console.log(cartTotal())
     
     const removeItem = (product_id, product_price, id) =>{
-        tot = tot - parseFloat(product_price)
-        console.log("Total:" + tot)
+        // tot = tot - parseFloat(product_price)
+        // console.log("Total:" + tot)
         console.log("Fetch call to clear one product")
         var tr = document.getElementById("pro"+id);
         tr.style.display = "none"
@@ -83,6 +95,8 @@ function CartScreen (props){
         }
         
     }
+
+    
 
     // const removeItem = (itemId) => {
     //         var elementName = "pro" + itemId
@@ -144,7 +158,7 @@ function CartScreen (props){
 
                 <div>
                     <h3>
-                        Total : ${tot}
+                        Total : ${cartTotal()}
                     </h3>
                     {
                         userHasLoggedIn ? 
