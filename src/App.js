@@ -50,6 +50,7 @@ function App() {
   };
 
   const addToCart = (item)=>{
+    
     setCart([...cart, item])
   }
 

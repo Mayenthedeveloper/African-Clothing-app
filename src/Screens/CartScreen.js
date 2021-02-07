@@ -67,26 +67,26 @@ const cartTotal = ()=>{
     
 }
 console.log(cartTotal())
-    
-    const removeItem = (product_id, product_price, id) =>{
+// const removeItem = (product_id, product_price, id)
+    const removeItem = (product_id) =>{
         // tot = tot - parseFloat(product_price)
         // console.log("Total:" + tot)
-        console.log("Fetch call to clear one product")
-        var tr = document.getElementById("pro"+id);
-        tr.style.display = "none"
+        // console.log("Fetch call to clear one product")
+        // var tr = document.getElementById("pro"+id);
+        // tr.style.display = "none"
         if(TokenService.hasAuthToken()){
             const {user_id} = TokenService.readJwtToken()
-            var reqBody = {
-                user_id : user_id,
-                product_id : product_id
-            }
-            console.log(reqBody.product_id)
+            // var reqBody = {
+            //     user_id : user_id,
+            //     product_id : product_id
+            // }
+            // console.log(reqBody.product_id)
             fetch(`${config.API_ENDPOINT}/cart/${user_id}`,{
                 method: 'DELETE',
                 headers: {
                     "content-type": "application/json",
                   },
-                body: JSON.stringify(reqBody)
+                body: JSON.stringify({product_id})
             })
             .then(() => {
                 console.log('Deleted...')
@@ -123,8 +123,8 @@ console.log(cartTotal())
                     <table id="cartTable">
                        
                     {
-                        context.cart.map(item=>
-                            <tr id = {"pro"+item.id}>
+                        context.cart.map((item, i)=>
+                            <tr id = {"pro"+item.id} key={i}>
                                <td >
                                     <img className="cart-image" src={item.image} alt="product" />
                                 </td> 
@@ -135,7 +135,7 @@ console.log(cartTotal())
                                 </td>
                                 <td>
                                     {/* Quantity:
-                                <select value = {item.quantity} onChange = {updateOrderQty}>
+                                <select>
                                     <option>1</option>
                                     <option>2</option>
                                     <option>3</option>
@@ -144,7 +144,7 @@ console.log(cartTotal())
                                 </select> */}
                                 </td>
                                 <td>
-                                <button type="button" className="button" onClick={(e)=> removeItem(item.product_id, item.price, item.id)} >
+                                <button type="button" className="button" onClick={(e)=> removeItem(item.id)} >
                                     Delete
                                 </button>
                             </td>

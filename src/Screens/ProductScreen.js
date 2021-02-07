@@ -1,6 +1,5 @@
 import React, {useContext, useState} from 'react';
 import { Link } from 'react-router-dom';
-// import data from '../data';
 import AppContext from '../AppContext';
 import config from '../config'
 import TokenService from '../services/token-service'
@@ -19,16 +18,16 @@ function ProductScreen(props){
         e.preventDefault()
 
         if(TokenService.hasAuthToken()){
-            const item = { 
-                name: product.name,
-                size: product.size,
-                image: product.image,
-                quantity: quantity,
-                id: product.id,
-                price: product.price * quantity,
-            }
+            // const item = { 
+            //     name: product.name,
+            //     size: product.size,
+            //     image: product.image,
+            //     quantity: quantity,
+            //     id: product.id,
+            //     price: product.price * quantity,
+            // }
     
-            context.addToCart(item)
+            // context.addToCart(item)
 
             const {user_id} = TokenService.readJwtToken()
             fetch(`${config.API_ENDPOINT}/cart` ,{
@@ -59,80 +58,14 @@ function ProductScreen(props){
     //         id: product.id,
     //         price: product.price * quantity,
     //     }
-
-            
-        // const removeItem = (product_id) =>{
-        //     if(TokenService.hasAuthToken()){
-        //         const {user_id} = TokenService.readJwtToken()
-    
-        //         fetch(`${config.API_ENDPOINT}/cart/${user_id}`,{
-        //             method: 'DELETE',
-        //             headers: {
-        //                 "content-type": "application/json",
-        //               },
-        //             body: JSON.stringify({product_id})
-        //         })
-        //         .then(() => {
-        //             console.log('Deleted...')
-        //             context.removeFromCart(product_id)
-        //         })
-        //     }
-            
-        // }   
-            
-
-        // const addItemsToCart = () =>{
-        //     fetch(`${config.API_ENDPOINT}/cart` ,{
-        //         method: 'POST',
-        //         heades:{
-        //             'content-type': 'application/json'
-        //         },
-        
-        //     })
-        //     .then(res =>{
-        //         if(!res.ok){
-        //             return res.json().then(e => Promise.reject(e))
-        //             return res.json()
-        //         }
-        //     })
-    
-        //     .catch(error =>{
-        //         console.error({error})
-        //     })
-        // }
-
-
-
-        // context.addToCart(item)
-        
-        // fetch(`${config.API_ENDPOINT}/cart` ,{
-        //     method: 'POST',
-        //     heades:{
-        //         'content-type': 'application/json'
-        //     },
-    
-        // })
-        // .then(res =>{
-        //     if(!res.ok){
-        //         return res.json().then(e => Promise.reject(e))
-        //         return res.json()
-        //     }
-        // })
-
-        // .catch(error =>{
-        //     console.error({error})
-        // })
-
         
     }
 
+    const setQty = (quantity) => {
+        setQuantity(quantity);
+    }
 
 
-
-
-    // const setQty = (quantity) => {
-    //     setQuantity(quantity);
-    // }
     
     return(
         <div>
@@ -177,13 +110,13 @@ function ProductScreen(props){
                             Status:{product.status}
                         </li>
                         <li>
-                            {/* Qty: <select>
+                            Qty: <select onChange={(e) => setQty(e.target.value)}>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                                 <option value="5">5</option>
-                            </select> */}
+                            </select>
                         </li>
                         <li>
                             <button className="button" type="submit" >
