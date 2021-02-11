@@ -1,6 +1,5 @@
 import React,{useState, useEffect} from 'react';
 import  {  Route, Link } from 'react-router-dom';
-// import data from './data';
 import HomeScreen from './Screens/HomeScreen';
 import ProductScreen from './Screens/ProductScreen';
 import CartScreen from './Screens/CartScreen';
@@ -27,7 +26,7 @@ function App() {
     fetch(`${config.API_ENDPOINT}/products`)
     .then(res => res.json())
     .then(products => setProducts(products))
-    // setProducts(data)
+   
 
     if(TokenService.hasAuthToken()){
       const {user_id} = TokenService.readJwtToken()
@@ -50,7 +49,7 @@ function App() {
   };
 
   const addToCart = (item)=>{
-    
+
     setCart([...cart, item])
   }
 
@@ -78,21 +77,7 @@ function App() {
         cart = {cart}
         
         />
-      {/* <header className='header'>
-        <div className='brand'>
-          <button onClick={openMenu}>
-            &#9776;
-          </button>
-        </div>
-        <div className='header-links'>
-          <Link to='/'>African Clothing</Link>
-        </div>
-        <div className='header-links'>
-           <Link to='/cart'> Cart-{cart.length}</Link>
-          <Link to='/signin'> Sign In </Link>
-          
-        </div>
-      </header> */}
+      
       <aside className='sidebar'>
         <h3>Shopping Categories</h3>
         <button className='sidebar-close-button' onClick={closeMenu}>X</button>

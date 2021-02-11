@@ -12,49 +12,19 @@ function CartScreen (props){
     var userHasLoggedIn = ""
 
     const context = useContext(AppContext)
-    console.log("Context:")
-    console.log(context.cart)
-    // var itemList = []
-    // context.cart.forEach(item=> {
-    //     if(!(item.id in itemList))
-    //     {
-    //         var itemid = item.id
-    //         itemList[itemid] =  item
-    //     }
-    //     else{
-    //         var tempItem = itemList[item.id]
-    //         tempItem.quantity = parseInt(tempItem.quantity) + parseInt(item.quantity); //typecasting 
-    //         itemList[item.id] = tempItem
-    //     }
-    // })
+    
     
     if(userLoggedin != "loggedin")
     {
         userHasLoggedIn = false
-       /// alert("User Out")
     }
     else
     {
-        //alert("User In")
         userHasLoggedIn = true
     }
 
-    const handleOrder = () => {
-        //call backend servie to 1. insert in ORder table
-    }
-
-    
-    //const productId = props.match.params.id;
-    
     const [total, setTotal] = useState(0)
 
-
-    // var tot = 0
-    // context.cart.map(item=> {
-    //    tot += parseFloat(item.price)
-    // })
-
-//    setTotal(tot)
 
 const cartTotal = ()=>{
     
@@ -67,20 +37,12 @@ const cartTotal = ()=>{
     
 }
 console.log(cartTotal())
-// const removeItem = (product_id, product_price, id)
+
     const removeItem = (product_id) =>{
-        // tot = tot - parseFloat(product_price)
-        // console.log("Total:" + tot)
-        // console.log("Fetch call to clear one product")
-        // var tr = document.getElementById("pro"+id);
-        // tr.style.display = "none"
+       
         if(TokenService.hasAuthToken()){
             const {user_id} = TokenService.readJwtToken()
-            // var reqBody = {
-            //     user_id : user_id,
-            //     product_id : product_id
-            // }
-            // console.log(reqBody.product_id)
+            
             fetch(`${config.API_ENDPOINT}/cart/${user_id}`,{
                 method: 'DELETE',
                 headers: {
@@ -96,21 +58,6 @@ console.log(cartTotal())
         
     }
 
-    
-
-    // const removeItem = (itemId) => {
-    //         var elementName = "pro" + itemId
-    //         document.getElementById(elementName).style.display = "none"
-    //         finalAmount = finalAmount - itemList[itemId].price
-    //         setTot()
-
-
-    //         //backend to run the delte query with productID = itemId
-    // }
-
-    const updateOrderQty = () => {
-        //call to backend to run update quert with new quantity
-    }
   
 
     return(

@@ -109,7 +109,7 @@ function ProductScreen(props){
                         <li>
                             Status:{product.status}
                         </li>
-                        <li>
+                        {/* <li>
                             Qty: <select onChange={(e) => setQty(e.target.value)}>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -117,7 +117,7 @@ function ProductScreen(props){
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </select>
-                        </li>
+                        </li> */}
                         <li>
                             <button className="button" type="submit" >
                                 Add to cart
