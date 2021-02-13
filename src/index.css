@@ -104,8 +104,11 @@ a:hover{
 }
 
 .product-image{
-  max-width: 34rem;
-  max-height: 34rem;
+    max-width: 34rem;
+    max-height: 34rem;
+    min-width: 34rem;
+    min-height: 34rem;
+    padding: 15px;
 }
 
 /* Sidebar */
@@ -125,6 +128,7 @@ a:hover{
   width: 30rem;
   background-color: #f0f0f0;
   height:100% ;
+  z-index: 1000;
 }
 .sidebar.open{
   transform: translateX(0);

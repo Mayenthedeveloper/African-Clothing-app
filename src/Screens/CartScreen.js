@@ -12,7 +12,13 @@ function CartScreen (props){
     var userHasLoggedIn = ""
 
     const context = useContext(AppContext)
-    
+    var el = document.getElementById("hero")
+    if(el != null)
+    {
+        el.classList.add("hide")
+        document.getElementById("shopNowBtn").classList.add("dontShow");
+        document.getElementById("checkOutHeading").classList.add("dontShow");
+    }
     
     if(userLoggedin != "loggedin")
     {
@@ -30,13 +36,13 @@ const cartTotal = ()=>{
     
     let tot = 0;
     
-    context.cart.map(item=> {
-        tot += parseFloat(item.price)
-     })
-     return tot
-    
+    if(context.cart.length > 0){
+        context.cart.map(item=> {
+            tot += parseFloat(item.price)
+         })
+    }
+    return tot   
 }
-console.log(cartTotal())
 
     const removeItem = (product_id) =>{
        
@@ -68,8 +74,9 @@ console.log(cartTotal())
                         </h3>
 
                     <table id="cartTable">
-                       
+                 
                     {
+                        context.cart.length > 0 ? 
                         context.cart.map((item, i)=>
                             <tr id = {"pro"+item.id} key={i}>
                                <td >
@@ -100,7 +107,10 @@ console.log(cartTotal())
                             </td>
                             </tr>
                         )
-                    }
+                        :
+                        <tr></tr>
+                    } 
+        
                     </table>
 
                 <div>

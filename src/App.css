@@ -180,3 +180,38 @@ html{
   }
   
 }
+
+#hero
+{
+  background-image: url('https://www.allthingsankara.com/wp-content/uploads/2014/09/balogun_market_ankara_fabric.jpg');
+  height: 16%;
+  position: relative;
+  opacity: 1;
+  transition: height 1s;
+}
+
+#shopNowBtn
+{
+  position: absolute;
+  top: 50%;
+  left: 43%;
+  background-color: #dece0f;
+  height: 70px;
+  width: 100px;
+  border-radius: 16px;
+  border: none
+}
+
+#checkOutHeading{
+  text-align: center;
+  font-size: 40px;
+}
+
+#hero.hide
+{
+  height: 0px;
+}
+
+.dontShow{
+  display: none
+}

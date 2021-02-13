@@ -24,8 +24,10 @@ function HomeScreen(props){
          products.map(product => 
       <li key = {product.id}>
         <div className='product'>
-        <Link to={'/product/' + product.id}>
-          <img className ='product-image' src={product.image} alt='product'/>
+        <Link to={'/product/' + product.id} style={{border: 'solid #f0c040 1px'}}>
+          <div>
+            <img className ='product-image' src={product.image} alt='product'/>
+          </div>
         </Link>
           
           <div className='product-name'>

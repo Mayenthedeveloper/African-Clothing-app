@@ -13,6 +13,27 @@ function Header({cart, openMenu}) {
         TokenService.clearCallbackBeforeExpiry()
         IdleService.unRegisterIdleResets()
         context.setLoggedStatus(TokenService.hasAuthToken())
+        var el = document.getElementById("hero")
+        el.classList.remove("hide")
+          document.getElementById("shopNowBtn").classList.remove("dontShow");
+          document.getElementById("checkOutHeading").classList.remove("dontShow");
+        
+    }
+
+    const handleTitleClick = () => {
+        var el = document.getElementById("hero")
+        if(el.classList.contains("hide"))
+        {
+          el.classList.remove("hide")
+          document.getElementById("shopNowBtn").classList.remove("dontShow");
+          document.getElementById("checkOutHeading").classList.remove("dontShow");
+        }
+        else
+        {
+          el.classList.add("hide")
+          document.getElementById("shopNowBtn").classList.add("dontShow");
+          document.getElementById("checkOutHeading").classList.add("dontShow");
+        }
     }
 
     return (
@@ -25,10 +46,10 @@ function Header({cart, openMenu}) {
           </button>
             </div>
             <div className='header-links'>
-                <Link to='/'>African Clothing</Link>
+                <Link id="webTitle" onClick={handleTitleClick} to='/'>African Clothing</Link>
             </div>
             <div className='header-links'>
-                <Link to='/cart'> Cart-{cart.length}</Link>
+                <Link  id="cartCount" to='/cart'>Cart- {cart.length}</Link>
                 {
                     context.loggedStatus ? 
                     <Link onClick={handleLogoutClick}  to='/'> Log out </Link> : 

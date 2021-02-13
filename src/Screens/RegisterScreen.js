@@ -37,19 +37,7 @@ function RegisterScreen(props){
        .catch(res => {
         setError(res.error)
       })
-        // fetch(`${config.API_ENDPOINT}/users`, {
-        //     method: 'POST',
-        //     headers: {
-        //     'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(user),
-        //     })
-        //     .then(res => {
-        //         console.log("user adedd")
-        //     })
-        //     .catch(error => {
-        //     console.error({ error })
-        // })
+      
 }
 
 

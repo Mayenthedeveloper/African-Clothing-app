@@ -49,7 +49,6 @@ function App() {
   };
 
   const addToCart = (item)=>{
-
     setCart([...cart, item])
   }
 
@@ -57,7 +56,6 @@ function App() {
     setCart(cart.filter(item => item.id !== id))
   }
 
-  
 
   const value = {
     cart,
@@ -69,6 +67,23 @@ function App() {
     removeFromCart,
   }
 
+  const handleShopNow = () => {
+    var el = document.getElementById("hero")
+    if(el.classList.contains("hide"))
+    {
+      // el.classList.remove("hide")
+      // document.getElementById("shopNowBtn").classList.remove("dontShow");
+      // document.getElementById("checkOutHeading").classList.remove("dontShow");
+    }
+    else
+    {
+      el.classList.add("hide")
+      document.getElementById("shopNowBtn").classList.add("dontShow");
+      document.getElementById("checkOutHeading").classList.add("dontShow");
+    }
+   
+  }
+
   return (
     <AppContext.Provider value ={value}>
     <div className='grid-container'>
@@ -78,7 +93,7 @@ function App() {
         
         />
       
-      <aside className='sidebar'>
+      <aside className='sidebar' onClick={closeMenu}>
         <h3>Shopping Categories</h3>
         <button className='sidebar-close-button' onClick={closeMenu}>X</button>
         <ul className='categories'>
@@ -89,8 +104,12 @@ function App() {
         </ul>
       </aside>
      
-      <main className ='main'>
-        <div className='content'>
+      <main className ='main' onClick={closeMenu}>
+        <div id="hero">
+          <button type= "button" id="shopNowBtn" onClick={handleShopNow}>SHOP NOW</button>
+        </div>
+        <div className='content' onClick={handleShopNow}>
+          <h2 id="checkOutHeading">CHECK OUT OUR PRODUCTS</h2>
           <Route path='/product/:id' component={ProductScreen}/>
           <Route path='/signin' component={SigninScreen}/>
           <Route path='/register' component={RegisterScreen}/>
