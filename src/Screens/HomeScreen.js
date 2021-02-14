@@ -6,12 +6,10 @@ import TokenService from '../services/token-service'
 
 function HomeScreen(props){
   const context = useContext(AppContext)
-
   const {id} = props.match.params
-  // let products = context.products
+ 
   let products = data.products
   if(id){
-    //  products = context.products.filter(product=> product.category === id)
     products = data.products.filter(product=> product.category === id)
   }
    
@@ -21,8 +19,8 @@ function HomeScreen(props){
     return(
         <ul className='products'>
         {
-         products.map(product => 
-      <li key = {product.id}>
+         products.map((product, index) => 
+      <li key = {product.id, index}>
         <div className='product'>
         <Link to={'/product/' + product.id} style={{border: 'solid #f0c040 1px'}}>
           <div>

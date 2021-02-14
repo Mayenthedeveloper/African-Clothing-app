@@ -50,14 +50,6 @@ function ProductScreen(props){
                 pathname: '/signin'
           })
         }
-    //    const item = { 
-    //         name: product.name,
-    //         size: product.size,
-    //         image: product.image,
-    //         quantity: quantity,
-    //         id: product.id,
-    //         price: product.price * quantity,
-    //     }
         
     }
 
@@ -78,10 +70,10 @@ function ProductScreen(props){
                     <img src={product.image} alt='product'></img>
                 </div>
                 <div className='detail-info'>
-                    <ul>
-                        <li>
+                    <ul className='form-detail'>
+                        
                              <h4>{product.name}</h4> 
-                        </li>
+                        
                         <li>
                              {product.brand}
                         </li>
@@ -102,13 +94,13 @@ function ProductScreen(props){
 
                 <div className='details-action'>
                     <form onSubmit={handleSubmit}>
-                    <ul>
+                    <ul  className='form-container'>
                         <li>
                             Price:${product.price}
                         </li>
-                        <li>
+                        {/* <li>
                             Status:{product.status}
-                        </li>
+                        </li> */}
                         {/* <li>
                             Qty: <select onChange={(e) => setQty(e.target.value)}>
                                 <option value="1">1</option>

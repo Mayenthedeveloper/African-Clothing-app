@@ -51,7 +51,7 @@ function RegisterScreen(props){
     return(
         <div className='form' onSubmit={handleSubmit}>
             <form>
-                <ul>
+                <ul className='form-container'>
                     <li>
                         <h2>Create Account</h2>
                     </li>

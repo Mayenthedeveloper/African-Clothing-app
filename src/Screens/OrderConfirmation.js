@@ -29,8 +29,11 @@ context.cart.map(item => {
     })
 })
     return (
-        <div>
-            Success!! Order was placed
+        <div className='orderplaced'>
+            <h1>
+                Success!! Order was placed.
+            </h1>
+            
         </div>
     )
 }
