@@ -59,18 +59,7 @@ function Header({cart, openMenu}) {
 
             </div>
         </header>
-        // <div>
-        //     <Link
-        //         onClick={handleLogoutClick}
-        //         to='/'>
-        //         Logout
-        //     </Link>
-        //     <Link
-        //   to='/register'>
-        //   Register
-        // </Link>
-
-        // </div>
+    
     )
 }
 

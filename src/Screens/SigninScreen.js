@@ -101,7 +101,7 @@ function SigninScreen(props){
                     </li>
                     <li>
             
-                    <Link to='/register'>Create your account</Link>
+                    <Link to='/register' className="button secondary">Create your account</Link>
                     </li>
                 </ul>
             </form>

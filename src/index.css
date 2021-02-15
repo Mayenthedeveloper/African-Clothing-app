@@ -147,6 +147,9 @@ a:hover{
   top: 1.5rem;
 
   }
+  .button.secondary {
+    background-color: #f0f0f0;
+  }
   .form {
     display: flex;
     justify-content: center;
