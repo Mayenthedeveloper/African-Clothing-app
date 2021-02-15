@@ -26,6 +26,15 @@ Users need to register and sign in before  adding product into cart.
 ![SignIn](https://user-images.githubusercontent.com/70912329/107978552-d4604a80-6f71-11eb-82db-95c4e84838e5.png)
 
 
+## Tech Stack
+
+* Javascript
+* React
+* Node.js
+* Postgres
+* HTML
+* CSS
+
 
 
 
