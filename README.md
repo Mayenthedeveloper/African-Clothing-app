@@ -9,4 +9,5 @@ The [API documentation](https://github.com/Mayenthedeveloper/My-African-Clothing
 
 ## Features
 Users need to register and sign in before  checking out.
+![SignIn](https://user-images.githubusercontent.com/70912329/107978552-d4604a80-6f71-11eb-82db-95c4e84838e5.png)
 
