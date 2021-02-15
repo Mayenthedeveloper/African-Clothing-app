@@ -8,7 +8,8 @@ Check out the [live website.](https://african-clothing.mayenthedeveloper.vercel.
 The [API documentation](https://github.com/Mayenthedeveloper/My-African-Clothing-api/blob/master/README.md) is available on the african-clothing-api repository's README.md.
 
 ## Features
-Users can view Products available.
+Users can view Products available.![Product](https://user-images.githubusercontent.com/70912329/107979586-b1369a80-6f73-11eb-9817-f96d98916395.png)
+
 
 
 Hamburger menu that shows the product category.
