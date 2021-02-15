@@ -12,12 +12,14 @@ Users can view Products available.
 
 
 Hamburger menu that shows the product category.
+![ProductHamburger](https://user-images.githubusercontent.com/70912329/107979377-52712100-6f73-11eb-9bc3-554df4994396.png)
 
 
 Product detail.
+![ProductDtail](https://user-images.githubusercontent.com/70912329/107979366-4e450380-6f73-11eb-870c-0319da6cbda6.png)
 
 
-Shopping cart when product are added into the shopping cart.
+Shopping cart when product are added into the shopping cart.![ProductCART](https://user-images.githubusercontent.com/70912329/107979355-4b4a1300-6f73-11eb-8ead-18670ee96393.png)
 
 Users need to register and sign in before  adding product into cart.
 ![SignIn](https://user-images.githubusercontent.com/70912329/107978552-d4604a80-6f71-11eb-82db-95c4e84838e5.png)
