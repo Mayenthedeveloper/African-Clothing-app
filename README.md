@@ -6,3 +6,7 @@ Check out the [live website.](https://african-clothing.mayenthedeveloper.vercel.
 
 ## API documentation
 The [API documentation](https://github.com/Mayenthedeveloper/My-African-Clothing-api/blob/master/README.md) is available on the african-clothing-api repository's README.md.
+
+## Features
+Users need to register and sign in before  checking out.
+
