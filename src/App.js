@@ -119,10 +119,10 @@ function App() {
           <Route path = "/orderConfirmation" component = {OrderConfirmation}/>
           
         </div>
-        
+        <footer className='footer'>All right reserved</footer>
         </main>
 
-    <footer className='footer'>All right reserved</footer>
+    
     </div>
     </AppContext.Provider>
   );

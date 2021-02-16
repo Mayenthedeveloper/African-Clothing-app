@@ -54,6 +54,7 @@ color: #ff8000;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 50px;
 }
 
 a{
@@ -148,8 +149,8 @@ a:hover{
 
   }
   .button.secondary {
-    background-color: #f0f0f0;
-  }
+  background-color: #f0f0f0;
+}
   .form {
     display: flex;
     justify-content: center;

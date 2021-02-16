@@ -74,7 +74,7 @@ const cartTotal = ()=>{
                         </h3>
 
                     <table id="cartTable">
-                 
+                    <tbody>
                     {
                         context.cart.length > 0 ? 
                         context.cart.map((item, i)=>
@@ -110,7 +110,7 @@ const cartTotal = ()=>{
                         :
                         <tr></tr>
                     } 
-        
+                    </tbody>
                     </table>
 
                 <div>

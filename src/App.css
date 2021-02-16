@@ -215,3 +215,8 @@ html{
 .dontShow{
   display: none
 }
+
+.cart, .content
+{
+  min-height: 90vh;
+}
