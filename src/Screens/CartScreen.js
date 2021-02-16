@@ -2,7 +2,6 @@ import React, {useContext, useState} from 'react';
 import { Link } from 'react-router-dom';
 import AppContext from '../AppContext'
 import TokenService from '../services/token-service'
-import OrderConfirmation from './OrderConfirmation'
 import config from '../config'
 
 function CartScreen (props){

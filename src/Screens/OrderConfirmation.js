@@ -1,6 +1,4 @@
-import React, {useContext, useState} from 'react';
-import { Link } from 'react-router-dom';
-import data from '../data';
+import React, {useContext} from 'react';
 import AppContext from '../AppContext'
 import  config  from '../config'
 import TokenService from '../services/token-service'

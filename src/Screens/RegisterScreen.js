@@ -1,17 +1,11 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
-import config from '../config'
 import AuthApiService from '../services/auth-api-service'
 
 function RegisterScreen(props){
 
     const user = {}
-    // const [input, setInput] = useState({
-    //     name: '',
-    //     email: '',
-    //     password: '',
-    //     rePassword: ''
-    // })
+    
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')

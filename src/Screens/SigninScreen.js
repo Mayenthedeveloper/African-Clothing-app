@@ -19,17 +19,10 @@ function SigninScreen(props){
         setError(null) 
 
     const products = props.product
-    // console.log("Before: " + TokenService.readJwtToken())
-    // TokenService.clearAuthToken()
-    // TokenService.clearCallbackBeforeExpiry()
-    // IdleService.unRegisterIdleResets()
-    // console.log("After: " + TokenService.readJwtToken())
 
     const insertOrder = (e) => {
         e.preventDefault();
-        //1. call backend service to insert user_id, timestamp in OrderTable
-        //2. get the orderId from the table
-        //3. call backend service to insert orderItems in orderItem table
+    
     }
 
 
@@ -63,7 +56,7 @@ function SigninScreen(props){
                     pathname: '/cart',
                     state: "loggedin"
               })
-            //   this.props.onLoginSuccess()
+            
             })
             .catch(res => {
               setError(res.error)
