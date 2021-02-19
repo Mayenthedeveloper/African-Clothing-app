@@ -1,4 +1,4 @@
-#African Clothing
+# African Clothing
 
 
 Welcome to my E-commerce website called African Clothing.  This website is built specifically for users who are interested in buying African Ankara Attire for women. 
