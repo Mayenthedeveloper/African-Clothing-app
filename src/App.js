@@ -100,7 +100,7 @@ function App() {
             </button>
           </div>
           <div className="content" onClick={handleShopNow}>
-            <h2 id="checkOutHeading">CHECK OUT OUR PRODUCTS</h2>
+            <h2 id="checkOutHeading">CHECK OUT OUR AFRICAN ANKARA CLOTHING</h2>
             <Route path="/product/:id" component={ProductScreen} />
             <Route path="/signin" component={SigninScreen} />
             <Route path="/register" component={RegisterScreen} />
