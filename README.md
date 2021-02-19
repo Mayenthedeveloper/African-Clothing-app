@@ -1,4 +1,6 @@
 Welcome to my E-commerce website called African Clothing.  This website is built specifically for users who are interested in buying African Ankara Attire for women. 
+By clicking the shop now button on the website, it takes users to all the avavilable products. Users are able to sort by catgories, and  Once a user clicks on the the item they are interested in to add it to cart, it takes them to the sign in page. Once a user registers, then signs in, it takes them to their empty cart to show that there is no item in their cart.  User can then proceed to the product page, by clicking on African clothing. Once a user is done adding items into the cart, they can proceed to checking out, and then logging out. 
+
 Check out the [live website.](https://african-clothing.mayenthedeveloper.vercel.app/)
 
 ![Lannding](https://user-images.githubusercontent.com/70912329/107882058-2a62be80-6e9c-11eb-92e2-d7888223d84c.png)
