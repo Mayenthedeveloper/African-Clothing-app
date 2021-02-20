@@ -87,6 +87,8 @@ function RegisterScreen(props) {
             <button type="submit" className="button primary">
               Register
             </button>
+
+            {error && <p>{error}</p>}
           </li>
           <li>Already have an account?</li>
           <li>

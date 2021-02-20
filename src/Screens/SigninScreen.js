@@ -89,6 +89,7 @@ function SigninScreen(props) {
             <button type="submit" className="button primary">
               SignIn
             </button>
+            {error && <p>{error}</p>}
           </li>
           <li>New to African Clothings</li>
           <li>
