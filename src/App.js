@@ -37,6 +37,7 @@ function App() {
 
   const closeMenu = () => {
     document.querySelector(".sidebar").classList.remove("open");
+    handleShopNow();
   };
 
   const addToCart = (item) => {
@@ -62,8 +63,11 @@ function App() {
     if (el.classList.contains("hide")) {
     } else {
       el.classList.add("hide");
+      el.style.minHeight = 0;
       document.getElementById("shopNowBtn").classList.add("dontShow");
       document.getElementById("checkOutHeading").classList.add("dontShow");
+      document.getElementById("introText").classList.add("dontShow");
+      document.getElementById("heroImage").classList.add("dontShow");
     }
   };
 
@@ -95,9 +99,19 @@ function App() {
 
         <main className="main" onClick={closeMenu}>
           <div id="hero">
-            <button type="button" id="shopNowBtn" onClick={handleShopNow}>
-              SHOP NOW
-            </button>
+            <h1 id="introText">
+              Welcome to African Clothing! <br />
+              Browse through authentic handmade Ankara skirts, gowns and
+              blouses. <br />
+              Add them to your cart to shop
+              <div>
+                <button type="button" id="shopNowBtn" onClick={handleShopNow}>
+                  SHOP NOW
+                </button>
+              </div>
+            </h1>
+
+            <div id="heroImage"></div>
           </div>
           <div className="content" onClick={handleShopNow}>
             <h2 id="checkOutHeading">CHECK OUT OUR AFRICAN ANKARA CLOTHING</h2>

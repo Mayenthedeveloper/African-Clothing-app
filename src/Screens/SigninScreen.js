@@ -12,6 +12,16 @@ function SigninScreen(props) {
   const [error, setError] = useState("");
   const context = useContext(AppContext);
 
+  var el = document.getElementById("hero");
+  if (el != null) {
+    el.classList.add("hide");
+    el.style.minHeight = 0;
+    document.getElementById("shopNowBtn").classList.add("dontShow");
+    document.getElementById("checkOutHeading").classList.add("dontShow");
+    document.getElementById("introText").classList.add("dontShow");
+    document.getElementById("heroImage").classList.add("dontShow");
+  }
+
   const submitHandler = (e) => {
     e.preventDefault();
     setError(null);

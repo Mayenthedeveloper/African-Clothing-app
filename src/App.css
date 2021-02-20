@@ -1,98 +1,94 @@
-html{
-    font-size: 62.5%;
-    box-sizing: border-box;
-  }
-  
-  body{
-    font: 1.6rem Helvetica;
-    height: 100vh;
-    margin: 0;
-  }
-  
-  #root{
-      height: 100%;
-      width: 100%;
-      
-  }
-
-  img{
-    width: 100%;
-  }
-
-  .grid-container{
-    display: grid;
-    grid-template-areas: 
-    'header' 
-    'main' 
-    'footer';
-    grid-template-columns: 1fr;
-    grid-template-rows: 5rem 1fr 5rem;
-    height: 100%;
-  }
-  
-  .header{
-    grid-area: header;
-    background-color: #203040;
-    color: #ffffff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem;
-  }
-  
-  .header-links a{
-    color: #ffffff;
-    text-decoration: none;
-  }
-  .header-links a:hover{
-  color: #ff8000;
-  }
-  
-  .brand a{
-    color: #ffffff;
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  .main{
-    grid-area: main;
-  }
-  .footer{
-    grid-area: footer;
-    background-color: #203040;
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  /*Product Details */
-
-  .details{
-      display: flex;
-      justify-content:  space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      /* margin-left: 20%; */
-      padding: 1rem;
-
-  }
-
-  .details-image{
-      flex: 2 1 60rem;
-      
-  }
-
-  .details-image img{
-      max-width: 60rem;
-      width: 100%;
-  }
-  .details-info{
-    flex: 1 1 30rem;
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
 }
-.details-action{
-    flex: 1 1 30rem;
-    
+
+body {
+  font: 1.6rem Helvetica;
+  height: 100vh;
+  margin: 0;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+img {
+  width: 100%;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: 5rem 1fr 5rem;
+  height: 100%;
+}
+
+.header {
+  grid-area: header;
+  background-color: #203040;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.header-links a {
+  color: #ffffff;
+  text-decoration: none;
+}
+.header-links a:hover {
+  color: #ff8000;
+}
+
+.brand a {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+.main {
+  grid-area: main;
+}
+.footer {
+  grid-area: footer;
+  background-color: #203040;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Product Details */
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  /* margin-left: 20%; */
+  padding: 1rem;
+}
+
+.details-image {
+  flex: 2 1 60rem;
+}
+
+.details-image img {
+  max-width: 60rem;
+  width: 100%;
+}
+.details-info {
+  flex: 1 1 30rem;
+}
+.details-action {
+  flex: 1 1 30rem;
 }
 
 .details-info ul,
@@ -106,117 +102,132 @@ html{
 }
 
 .back-to-result {
-    padding: 1rem;
-  }
-  .details-action {
-    border: 0.1rem #808080 solid;
-    border-radius: 0.5rem;
-    background-color: #f8f8f8;
-    padding: 1rem;
-  }
+  padding: 1rem;
+}
+.details-action {
+  border: 0.1rem #808080 solid;
+  border-radius: 0.5rem;
+  background-color: #f8f8f8;
+  padding: 1rem;
+}
 
-  .details-action ul li:last-child {
-    display: flex;
-    flex-direction: column;
-  }
-  .button {
-    padding: 1rem;
-    border: 0.1rem #808080 solid;
-    border-radius: 0.5rem;
-    cursor: pointer;
-  }
-  .button:hover {
-    border: 0.1rem #404040 solid;
-  }
+.details-action ul li:last-child {
+  display: flex;
+  flex-direction: column;
+}
+.button {
+  padding: 1rem;
+  border: 0.1rem #808080 solid;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+.button:hover {
+  border: 0.1rem #404040 solid;
+}
 
-  .button.primary {
-    background-color: #f0c040;
-  }
+.button.primary {
+  background-color: #f0c040;
+}
 
-  .button.secondary {
-    background-color: #f0f0f0;
-  }
+.button.secondary {
+  background-color: #f0f0f0;
+}
 
-  .text-center {
-    text-align: center;
-  }
+.text-center {
+  text-align: center;
+}
 
-  .cart-image{
-    height: 100px;
-    width: 100px;
-  }
+.cart-image {
+  height: 100px;
+  width: 100px;
+}
 
-  .cart-list
-  {
-    text-align: center;
-  }
+.cart-list {
+  text-align: center;
+}
 
-  #cartTable{
-    margin: auto;
-    padding: 25px;
-    text-align: left;
-  }
+#cartTable {
+  margin: auto;
+  padding: 25px;
+  text-align: left;
+}
 
-  #cartTable tr td{
-    margin-bottom: 100px;
-  }
-  
-
+#cartTable tr td {
+  margin-bottom: 100px;
+}
 
 @media all and (max-width: 320px) {
-  
-  html{
+  html {
     font-size: 100%;
-    
   }
-  img, .grid-container{
-    width: auto ;
-    max-width: 100% ;
-    height: auto ;
+  img,
+  .grid-container {
+    width: auto;
+    max-width: 100%;
+    height: auto;
   }
-  
+
   .grid-container {
     max-width: 538px;
   }
-  
 }
 
-#hero
-{
-  background-image: url('https://www.allthingsankara.com/wp-content/uploads/2014/09/balogun_market_ankara_fabric.jpg');
-  height: 16%;
+#hero {
+  min-height: 22%;
   position: relative;
-  opacity: 1;
   transition: height 1s;
+  text-align: center;
+  color: white;
+  display: flex;
+  justify-content: center;
 }
 
-#shopNowBtn
-{
+#heroImage {
   position: absolute;
-  top: 50%;
-  left: 43%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: -webkit-fill-available;
+  z-index: 1;
+  opacity: 0.7;
+  min-height: 20%;
+  background-image: url("https://www.allthingsankara.com/wp-content/uploads/2014/09/balogun_market_ankara_fabric.jpg");
+}
+
+#shopNowBtn {
+  position: relative;
+  top: 70%;
   background-color: #dece0f;
   height: 70px;
   width: 100px;
   border-radius: 16px;
-  border: none
+  border: none;
+  z-index: 5;
+  margin-top: 30px;
 }
 
-#checkOutHeading{
+#checkOutHeading {
   text-align: center;
   font-size: 40px;
 }
 
-#hero.hide
-{
+#hero.hide {
   height: 0px;
 }
 
-.dontShow{
-  display: none
+.dontShow {
+  display: none;
 }
 
-.cart, .content
-{
+.cart,
+.content {
   min-height: 90vh;
+}
+
+#introText {
+  font-size: 2em;
+  position: absolute;
+  color: black;
+  z-index: 5;
+  top: 10%;
 }
