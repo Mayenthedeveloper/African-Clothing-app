@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import data from "../data";
 import AppContext from "../AppContext";
-import TokenService from "../services/token-service";
 
 function HomeScreen(props) {
   const context = useContext(AppContext);
